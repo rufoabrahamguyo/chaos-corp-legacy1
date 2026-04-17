@@ -1,55 +1,59 @@
-# Bad Python Code - Will fail multiple linters
+#!/usr/bin/env python3
+"""Module docstring: This is a properly formatted Python module."""
 
-def bad_function(
-# Missing parameters and bad indentation
-print("Hello World"  # Missing closing parenthesis
+import os
+import json
+import random
 
-def another_bad_function():
-    x = 1
-    y = 2
-    z = x + y
-    # No return statement when expected
+
+def good_function(param1: str, param2: int) -> str:
+    """Function docstring explaining what this function does.
     
-    # Using deprecated or bad practices
-    eval("print('dangerous')")  # Security risk
+    Args:
+        param1: Description of first parameter
+        param2: Description of second parameter
     
-    # Inconsistent spacing
-    list = [1,2,3,  4,5]
+    Returns:
+        Description of return value
+    """
+    result = param1 * param2
+    return str(result)
+
+
+class MyClass:
+    """Class docstring explaining the purpose of this class."""
     
-    # Line too long (over 79/88 chars)
-    very_long_variable_name_that_exceeds_character_limit = "This string is way too long and should be broken into multiple lines for readability"
+    def __init__(self, name: str):
+        """Initialize the class with a name."""
+        self.name = name
     
-    # Trailing whitespace (invisible but linter catches it)    
-    return 
+    def get_name(self) -> str:
+        """Return the name attribute."""
+        return self.name
+
+
+def safe_division(a: float, b: float) -> float:
+    """Safely divide two numbers with error handling.
     
-# Missing docstring at module level
-import os,sys,json,random  # Multiple imports on one line
+    Args:
+        a: Numerator
+        b: Denominator
+    
+    Returns:
+        Division result or 0 if division by zero
+    """
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return 0.0
 
-# Unused imports
-import datetime
-import math
 
-# Bad variable name (too short/ambiguous)
-a = "something"
+def main() -> None:
+    """Main function to demonstrate proper code."""
+    my_instance = MyClass("test")
+    print(my_instance.get_name())
+    print(safe_division(10, 2))
 
-# Missing spaces around operators
-result=5+3*2
 
-# Class with no docstring and bad naming
-class myClass:
-    pass
-
-# Function with too many arguments (>5)
-def too_many_args(a,b,c,d,e,f,g,h,i,j):
-    return a+b+c+d+e+f+g+h+i+j
-
-# Bare except clause
-try:
-    x = 1 / 0
-except:  # ← This is bad - should specify exception type
-    pass
-
-# Using 'l' as variable name (confusing with 1)
-l = [1, 2, 3]
-
-# No newline at end of file
+if __name__ == "__main__":
+    main()
