@@ -25,5 +25,8 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_HTML: true  # Currently only HTML
+          VALIDATE_PYTHON: true  # ← ADD THIS LINE
+          VALIDATE_PYTHON_BLACK: true 
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
